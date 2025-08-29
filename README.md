@@ -94,5 +94,7 @@ jupyter notebook IPA_Pythoncode.ipynb
 **Requirements** :
 
 numpy
+
 matplotlib
+
 jupyter
