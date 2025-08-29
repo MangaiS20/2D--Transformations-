@@ -36,8 +36,9 @@ Each transformation is applied on a simple **2D square**, and the results are vi
 ```bash
 git clone https://github.com/yourusername/2D-Geometric-Transformations.git
 cd 2D-Geometric-Transformations
+```
 
-**### 2. Install dependencies:**
+**2. Install dependencies:**
 pip install -r requirements.txt
 
 **3. Run with Jupyter Notebook**
