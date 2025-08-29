@@ -5,157 +5,172 @@ A Python toolkit for applying and visualizing 2D geometric transformations—fea
 
 ---
 
-### 📌 Repository Name:
+# 2D Geometric Transformations
 
-2D-Geometric-Transformations
+This project demonstrates **2D geometric transformations** in Python, including:
 
----
+- **Translation**
+- **Scaling**
+- **Rotation**
+- **Reflection**
+- **Shear**
+- **Similarity Transformation**
+- **Affine Transformation**
+- **Projective Transformation**
 
-### 📝 Description (for README):
-
-This repository demonstrates the implementation of *2D Geometric Transformations* in Python using *NumPy* and *Matplotlib*.
-
-The transformations covered include:
-
-* *Translation* (shifting the object in x and y directions)
-* *Rotation* (rotating about the origin)
-* *Scaling* (uniform & non-uniform resizing)
-* *Shearing* (slanting the shape)
-* *Similarity Transformation* (rotation + translation + uniform scaling)
-* *Affine Transformation* (linear mapping + translation)
-* *Projective Transformation (Homography)* (general case with vanishing points & perspective distortion)
-
-These transformations are visualized on a *2D square* for better understanding.
+The transformations are implemented using **NumPy** and **Matplotlib** for visualization, making it easy to understand how each transformation modifies a given shape.
 
 ---
 
-### 🔢 Mathematical Expressions
+## 🔹 Mathematical Background
 
-1. *Homogeneous Coordinates Representation*
-
+### 1. Translation
 $$
 \begin{bmatrix}
 x' \\ y' \\ 1
 \end{bmatrix}
 =
-T \cdot
-\begin{bmatrix}
-x \\ y \\ 1
-\end{bmatrix}
-$$
-
-where $T$ is the transformation matrix.
-
----
-
-
-2. *Translation*
-
-$$
-T = 
 \begin{bmatrix}
 1 & 0 & t_x \\
 0 & 1 & t_y \\
 0 & 0 & 1
 \end{bmatrix}
-$$
-
----
-
-3. *Rotation* (angle $\theta$)
-
-$$
-R = 
-\begin{bmatrix}
-\cos\theta & -\sin\theta & 0 \\
-\sin\theta & \cos\theta & 0 \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
----
-
-4. *Scaling*
-
-$$
-S = 
-\begin{bmatrix}
-s_x & 0 & 0 \\
-0 & s_y & 0 \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
----
-
-5. *Shearing*
-
-$$
-Sh = 
-\begin{bmatrix}
-1 & k_x & 0 \\
-k_y & 1 & 0 \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
----
-
-6. *Similarity Transformation* (rotation + scaling + translation)
-
-$$
-Sim = 
-\begin{bmatrix}
-k\cos\theta & -k\sin\theta & t_x \\
-k\sin\theta & k\cos\theta & t_y \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
----
-
-7. *Affine Transformation*
-
-$$
-A = 
-\begin{bmatrix}
-a_{11} & a_{12} & t_x \\
-a_{21} & a_{22} & t_y \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
----
-
-8. *Projective Transformation (Homography)*
-
-$$
-H = 
-\begin{bmatrix}
-h_{11} & h_{12} & h_{13} \\
-h_{21} & h_{22} & h_{23} \\
-h_{31} & h_{32} & h_{33}
-\end{bmatrix}
-$$
-
-$$
-\begin{bmatrix}
-x' \\ y' \\ 1
-\end{bmatrix}
-\sim
-H \cdot
+\cdot
 \begin{bmatrix}
 x \\ y \\ 1
 \end{bmatrix}
 $$
 
-(where $\sim$ means equality up to a scaling factor).
+### 2. Scaling
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+s_x & 0 & 0 \\
+0 & s_y & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 3. Rotation
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\theta & -\sin\theta & 0 \\
+\sin\theta & \cos\theta & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 4. Reflection
+Reflection across the x-axis:
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 5. Shear
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & k_x & 0 \\
+k_y & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 6. Similarity Transformation
+Combination of scaling, rotation, and translation:
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+s\cos\theta & -s\sin\theta & t_x \\
+s\sin\theta & s\cos\theta & t_y \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 7. Affine Transformation
+$$
+\begin{bmatrix}
+x' \\ y' \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} & a_{12} & t_x \\
+a_{21} & a_{22} & t_y \\
+0 & 0 & 1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+### 8. Projective Transformation
+$$
+\begin{bmatrix}
+x' \\ y' \\ w
+\end{bmatrix}
+=
+\begin{bmatrix}
+h_{11} & h_{12} & h_{13} \\
+h_{21} & h_{22} & h_{23} \\
+h_{31} & h_{32} & h_{33}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+x \\ y \\ 1
+\end{bmatrix}
+$$
+
+Final coordinates after normalization:
+$$
+x' = \frac{x'}{w}, \quad y' = \frac{y'}{w}
+$$
 
 ---
 
-⚡This repo is useful for *Computer Vision, **Image Processing, and **Graphics students* to understand how transformations work both mathematically and visually.
+## 🔹 Project Structure
 
----
 
 
 📂 2D-Geometric-Transformations
