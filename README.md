@@ -330,3 +330,37 @@ $$
 
 
 ## 🔹 Project Structure
+
+
+📂 2D-Geometric-Transformations
+┣ 📜 transformations.ipynb # Jupyter notebook with implementations
+┣ 📜 README.md # Project documentation
+
+
+---
+
+## 🔹 How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/2D-Geometric-Transformations.git
+   cd 2D-Geometric-Transformations
+
+
+Install dependencies:
+
+pip install numpy matplotlib
+
+
+Open the notebook:
+
+jupyter notebook transformations.ipynb
+
+📌 Applications
+
+Image processing
+
+Computer graphics
+
+Computer vision (e.g., perspective correction)
+
+Robotics & simulation
