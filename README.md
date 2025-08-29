@@ -48,6 +48,7 @@ where $T$ is the transformation matrix.
 
 ---
 
+
 2. *Translation*
 
 $$
@@ -156,7 +157,6 @@ $$
 
 ---
 
-👉 Nish, do you want me to also *add a sample README.md draft file* formatted with LaTeX equations so you can directly upload it with your code?
 
 📂 2D-Geometric-Transformations
 ┣ 📜 transformations.ipynb # Jupyter notebook with implementations
